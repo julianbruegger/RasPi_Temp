@@ -5,7 +5,7 @@ import mysql.connector
 
 # Define db
 mydb = mysql.connector.connect(
-    host="10.20.11.113", 
+    host="10.20.11.199", 
     user="root",
     password="123ict",
     database="temp_data")
@@ -16,7 +16,7 @@ pin = 21
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-    sql = "INSERT INTO sensor_1 (time, humidity, temperature) VALUES (now(), %s,%s)"
+    sql = "INSERT INTO sensor_1 (time, humidity, temperature) VALUES (now(),'%s')"
     val = (humidity, temperature)
     mycursor.execute(sql, val)
 
