@@ -13,9 +13,9 @@ mycursor = mydb.cursor()
 
 sensor = Adafruit_DHT.DHT11
 pin = 21
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
 while True:
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     sql = "INSERT INTO sensor_1 (time, humidity, temperature) VALUES (now(), %s,%s)"
     val = (humidity, temperature)
     mycursor.execute(sql, val)
