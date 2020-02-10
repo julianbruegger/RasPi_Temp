@@ -15,14 +15,13 @@ sensor = Adafruit_DHT.DHT11
 pin = 21
 
 while True:
+    # Get temperature
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-    sql = "INSERT INTO sensor_1 (time, humidity, temperature) VALUES (now(),'%s')"
+    #Inser values into db
+    sql = "INSERT INTO sensor_1 (time, humidity, temperature) VALUES (now(), %s,%s)"
     val = (humidity, temperature)
     mycursor.execute(sql, val)
 
     mydb.commit()
-
-    print(mycursor.rowcount, "record inserted.")
-
-    time.sleep(10)
+    time.sleep(60)
     
