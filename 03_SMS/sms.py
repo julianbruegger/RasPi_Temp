@@ -12,7 +12,7 @@ message = client.messages \
     .create(
          body='Hello World',
          from_='+12037936858',
-         to='+41765974891'
+         to='+41793896108'
      )
 
 print(message.sid)

@@ -25,7 +25,10 @@ mycursor.execute("SELECT temperature FROM sensor_1")
 
 myresult = mycursor.fetchone()
 
-print(maxtemp)
+def Printdata(myresult):
+    return myresult[11:15]
+
+#print(maxtemp)
 print(myresult)
 
 #if myresult > maxtemp
@@ -38,5 +41,5 @@ print(myresult)
 #else 
 #print("Temperatur ist unter"(maxtemp) Grad)
 
-print(message.sid)
-print(myresult)
+#print(message.sid)
+#print(myresult)
