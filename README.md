@@ -4,9 +4,12 @@ Ich sollte für den ICT-BZ Serverraum eine Temperatur/Feuchtigkeits anzeige erst
 
 ## Vorgehen
 ### DS18B20
-Als erstes habe ich mit einem [DS18B20](./02DS18B20) Sensor gearbeitet. Das auslesen der Daten funktioniert dort über eine Shell-Schnitstelle. 
+Als erstes habe ich mit einem [DS18B20](./02_02DS18B20) Sensor gearbeitet. Das auslesen der Daten funktioniert dort über eine Shell-Schnitstelle. 
 
 ![Bild eines DS18B20](./data/DS18B20.jpg)
+
+Die Funktionen dieses Sensores sind aber recht eingeschränkt. Das genaue Vorgehen für diesen Sensor ist [HIER](./02_DS18B20/README.md) Dokumentiert. 
+
 
 ### DHT11
 Da aber der Wunsch aufkam auch die Luftfeuchtigkeit aufzuzeigen habe ich von Joe einen [DHT11](./05_DHT11) Sensor ausgeliehen. 
@@ -58,17 +61,36 @@ Nach dem ich Rainer darauf angesprochen habe, hat er mich darauf aufmerksam gema
 
 Dies hätte ich dem Datenblatt entnehmen können, dies habe ich aber nicht durchgelesen. 
 
+Rainer hat mit mir zusammen dann ein Experiment durchgeführt, in welchem wir dann eine Tasse heisses Wasser neben den Sensor gestellt haben und einen Deckel Darüber gelegt haben. Der Anststieg der Temperatur und der Feuchtigkeit konnte dann perfekt gesehen werden. 
+
 Dort habe ich auch gelesen das es einen weiteren Sensor DHT22 gibt. 
 Die Sensoren sind gleich aufgebaut. Der DHT22 ist einfach viel genauer und hat eine grössere Betriebstemparatur.
 
-![Bild eines DHT22](./data/DHT22.jpg)
+
+<img src="./data/DHT22.jpg" width="200">
 
 Hier in einem Screenshot des Datenblattes kann die Betriebstemperatur und die Genauigkit ausgelesen weden.
 
 ![Datasheet](./data/Datasheet_DHT11.png)
+
 Hier is ersichtlich das die optimale Betriebstemperatur zwischen 25℃ und 50℃ liegt. Die minimale Luftfeuchtigkeit welche gelesen werden kann liegt bei 20% Luftfeuchtigkeit. Unter 25℃ können sogar nur mehr als 30% Luftfeuchtigkeit gmessen werden. 
 
-Bei der besseren Version, DHT22, sehen die Daten anderst aus.
+Bei der besseren Version, DHT22, sehen die Daten anderst aus. Gemäs Datenblatt kann der DHT22 auch im minusbereich Temperaturen messen. Auch ist die Genauigkeit um einiges höher. 
 
-Gemäs Datenblatt kann der DHT22 auch im 
+<img src="./data/Datasheet_DHT22.png">
+
+### Vergleich
+
+| Parameters        | DHT11 | DHT22     |
+| :----------        | -----: | -----:     |
+| Minimum Temperatur      | 0℃   | -40℃     |
+| Maximum Temperatur      | 50℃  | ~80℃     |
+| Minimum Feuchtigkeit       | 20% RH | 0% RH      | 
+| Maximum Feuchtigkeit       | 90% RH | 100% RH    |
+| Genauigkeit Temp  | ±2℃  | ±0.5℃     |
+| Genauigkeit Feuchtigkeit   | ±5% RH| ±2% RH    |
+| Empfindlichkeit Feuchtigkeit|1% RH |0.1% RH|
+|Empfindlichkeit Temperatur|1℃|0.1℃|
+
+In der obigen Grafik ist der Unterschierd der beiden Sensoren nocheinmal dargestellt. 
 
