@@ -23,6 +23,9 @@ Dieser kann sowohl die Luftfeuchtigkeit als auch die Temperatur messen.
 
 ```python
 # Definieren des Sensortyps
+# Adafruit_DHT.DHT11
+# Adafruit_DHT.DHT22
+# Adafruit_DHT.AM2302
 sensor = Adafruit_DHT.DHT11
     #Definieren des Verwendetens GPIO-Pin's
     pin = 21
@@ -33,7 +36,7 @@ sensor = Adafruit_DHT.DHT11
 ```
 Über ein weiteres Pythonmodul namens ```mysql.connector``` kann wie der Name schon sagt auf eine MySQL Datenbank zugegriffen werden. 
 
-Auch dies Ist ganz simple. Das ganze ist auf der Website von [w3schools.com](https://www.w3schools.com/python/python_mysql_getstarted.asp "Link zu w3shools.com") perfekt dokumentiert.
+Auch dies ist ganz simple. Das ganze ist auf der Website von [w3schools.com](https://www.w3schools.com/python/python_mysql_getstarted.asp "Link zu w3shools.com") perfekt dokumentiert.
 
 ```python
 # Hier definiere ich die Zugangsdaten der Datenbank

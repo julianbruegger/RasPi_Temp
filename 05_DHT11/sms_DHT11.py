@@ -4,8 +4,10 @@ import mysql.connector
 # Download the helper library from https://www.twilio.com/docs/python/install
 from twilio.rest import Client
 
-maxtemp = "30.0"
-message = '!ALARM! Temperatur liegt bei'
+maxtemp = 28.0
+message = '!ALARM! Temperatur liegt bei '
+message2 = ' Bitte Klimageraet kontrollieren'
+
 null_variable = None
 # Define db
 mydb = mysql.connector.connect(
@@ -15,7 +17,7 @@ mydb = mysql.connector.connect(
     database="temp_data")
 mycursor = mydb.cursor()
 
-sensor = Adafruit_DHT.DHT11
+sensor = Adafruit_DHT.DHT22
 pin = 21
 
 # Your Account Sid and Auth Token from twilio.com/console
@@ -38,16 +40,23 @@ while True:
         mycursor.execute(sql, val)
 
         mydb.commit()
-        send = message + str(temperature)
-        if temperature < maxtemp:
-            print (send)
-            message = client.messages \
-                .create(
-                    body=(send),
-                    from_='+12037936858',
-                    to='+41765974891'
-                )
+        send = (message + str(temperature) + message2)
+        if temperature > maxtemp:
+            print("Temp is to High, Checking again")
+            time.sleep(60)
+            humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)           
+            if temperature > maxtemp:
+                print (send)
+                message = client.messages \
+                    .create(
+                        body=(send),
+                        from_='+12037936858',
+                        to='+41765974891'
+                    )
+                time.sleep(60)
+            else:
+                print("False Alarm")
         else:
             print("Everything is fine")
-            
+            time.sleep(60)
     

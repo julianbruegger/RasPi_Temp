@@ -1,6 +1,9 @@
+#!/bin/bash
+
+echo "Updates Installieren"
 sudo apt-get update
 sudo apt-get upgrade
-sleep 1
+
 
 echo "Updates Heruntergeladen und Installiert!"
 echo ""
@@ -12,6 +15,8 @@ git clone https://github.com/adafruit/Adafruit_Python_DHT.git && cd Adafruit_Pyt
 sudo python setup.py install
 echo "MySQL-connector Installieren"
 python -m pip install mysql-connector
-echo "Create new Table"
 
 echo "Alles wichtige ist nun Installiert"
+clear
+
+echo "Weitere Informationen im README.md"

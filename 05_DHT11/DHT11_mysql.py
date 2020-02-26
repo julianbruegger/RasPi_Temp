@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
     database="temp_data")
 mycursor = mydb.cursor()
 
-sensor = Adafruit_DHT.DHT11
+sensor = Adafruit_DHT.DHT22
 pin = 21
 
 while True:
