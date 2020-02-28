@@ -44,7 +44,6 @@ while True:
 
         mydb.commit()
         temp_Format = ('{0:03.1f}'.format(temperature))
-        # print('{0:03.1f} {1:03.1f}'.format(temperature, humidity))
         send = ((message)+(str(temp_Format))+(message2)+(str(maxtemp))+(message3)+(message4))
         # Check if Temp is to high
         if temperature > maxtemp:
@@ -64,10 +63,8 @@ while True:
                 time.sleep(600)
             # If second Test is false, abort
             else:
-                #print("False Alarm")
                 time.sleep(10)
         # If first test is false, abort.
         else:
-            #print("Everything is fine")
             time.sleep(300)
     
