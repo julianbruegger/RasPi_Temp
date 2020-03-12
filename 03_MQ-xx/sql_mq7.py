@@ -76,28 +76,27 @@ def main():
          init()
          print("please wait...")
          time.sleep(20)
-         #while True:
-         COlevel=readadc(mq7_apin, SPICLK, SPIMOSI, SPIMISO, SPICS)
-
-            #COlevel=readadc(mq7_apin, SPICLK, SPIMOSI, SPIMISO, SPICS)
-            #print("CO is detected")
-            #print"Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V"
-         print(str("%.2f"%((COlevel/1024.)*100)))
-            #time.sleep(0.5)
 
          while True:
-            if COlevel is null_variable:
-                print('Value is null')
-    
-            else:
-                #Inser values into db
-                numVal = str((COlevel/1024.)*100)
-                sql = "INSERT INTO sensor_3 (time, co) VALUES (now()," + numVal + ")"
-                #val = tuple("%.2f"%((COlevel/1024.)*100))
-                mycursor.execute(sql)
-                mydb.commit()
-                print(numVal)
-                time.sleep(60)
+                COlevel=readadc(mq7_apin, SPICLK, SPIMOSI, SPIMISO, SPICS)
+
+            #print("CO is detected")
+            #print"Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V"
+                print(str("%.2f"%((COlevel/1024.)*100)))
+            #time.sleep(0.5)
+
+                if COlevel is null_variable:
+                        print('Value is null')
+
+                else:
+                        #Inser values into db
+                        numVal = str((COlevel/1024.)*100)
+                        sql = "INSERT INTO sensor_3 (time, co) VALUES (now()," + numVal + ")"
+                        #val = tuple("%.2f"%((COlevel/1024.)*100))
+                        mycursor.execute(sql)
+                        mydb.commit()
+                        print(numVal)
+                        time.sleep(30)
 
 
 
