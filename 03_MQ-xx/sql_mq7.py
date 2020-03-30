@@ -14,10 +14,10 @@ mq7_apin = 0
 null_variable = None
 # Define db
 mydb = mysql.connector.connect(
-    host="10.20.11.199", 
-    user="root",
-    password="123ict",
-    database="temp_data")
+    host="192.168.111.214", 
+    user="Sensor",
+    password="***",
+    database="Sensor_Data")
 mycursor = mydb.cursor()
 
 #init defiinieren
@@ -76,27 +76,22 @@ def main():
          init()
          print("please wait...")
          time.sleep(20)
-
          while True:
                 COlevel=readadc(mq7_apin, SPICLK, SPIMOSI, SPIMISO, SPICS)
-
-            #print("CO is detected")
-            #print"Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V"
-                print(str("%.2f"%((COlevel/1024.)*100)))
-            #time.sleep(0.5)
-
+                
                 if COlevel is null_variable:
                         print('Value is null')
 
                 else:
                         #Inser values into db
-                        numVal = str((COlevel/1024.)*100)
+                        numVal = str((COlevel/1024.)*25)
                         sql = "INSERT INTO sensor_3 (time, co) VALUES (now()," + numVal + ")"
                         #val = tuple("%.2f"%((COlevel/1024.)*100))
                         mycursor.execute(sql)
                         mydb.commit()
                         print(numVal)
-                        time.sleep(30)
+                time.sleep(10)
+                
 
 
 

@@ -14,7 +14,7 @@ mq7_apin = 0
 def init():
     GPIO.setwarnings(False)
     GPIO.cleanup() #Macht die GPIO-Pins frei
-    GPIO.setmode(GPIO.BCM) #Die Nummerierungsart definieren
+    GPIO.setmode(GPIO.BCM) #Die Nummerierungsart der GPIO definieren
 
     # set up the SPI interface pins
     GPIO.setup(SPIMOSI, GPIO.OUT)
@@ -68,8 +68,8 @@ def main():
          while True:
             COlevel=readadc(mq7_apin, SPICLK, SPIMOSI, SPIMISO, SPICS)
             #print("CO is detected")
-            print"Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V"
-            print"Current CO density is:" +str("%.2f"%((COlevel/1024.)*100))+" %"
+            print"Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*25))+" ppm"
+            print"Current CO density is:" +str(COlevel/1024.)+" %"
             time.sleep(0.5)
 
 
