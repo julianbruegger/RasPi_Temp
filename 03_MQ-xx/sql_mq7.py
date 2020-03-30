@@ -84,8 +84,8 @@ def main():
 
                 else:
                         #Inser values into db
-                        numVal = str((COlevel/1024.)*25)
-                        sql = "INSERT INTO sensor_3 (time, co) VALUES (now()," + numVal + ")"
+                 sql = "INSERT INTO sensor_3 (time, co) VALUES (now()," + numVal + ")"       numVal = str((COlevel/1024.)*25)
+                        
                         #val = tuple("%.2f"%((COlevel/1024.)*100))
                         mycursor.execute(sql)
                         mydb.commit()
