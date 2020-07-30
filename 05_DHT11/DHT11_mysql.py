@@ -27,4 +27,4 @@ while True:
         val = (humidity, temperature)
         mycursor.execute(sql, val)
         mydb.commit()
-        time.sleep(60)
+        time.sleep(300)
