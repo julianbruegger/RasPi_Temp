@@ -14,7 +14,7 @@ mq7_apin = 0
 null_variable = None
 # Define db
 mydb = mysql.connector.connect(
-    host="192.168.111.214", 
+    host="10.20.10.199", 
     user="Sensor",
     password="***",
     database="Sensor_Data")

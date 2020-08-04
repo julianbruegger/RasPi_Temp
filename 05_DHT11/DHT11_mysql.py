@@ -5,10 +5,10 @@ import mysql.connector
 null_variable = None
 # Define db
 mydb = mysql.connector.connect(
-    host="10.20.11.199", 
-    user="root",
-    password="123ict",
-    database="temp_data")
+    host="10.20.10.199", 
+    user="sensor",
+    password="***",
+    database="Sensor_Data")
 mycursor = mydb.cursor()
 
 sensor = Adafruit_DHT.DHT22
